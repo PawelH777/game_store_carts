@@ -20,8 +20,9 @@ public class CartRepositoryAdapterImpl implements CartRepositoryAdapter {
     }
 
     @Override
-    public void save(final CartDO cartDO) {
-        cartRepository.save(buildCart(cartDO));
+    public long save(final CartDO cartDO) {
+        final Cart cart = cartRepository.save(buildCart(cartDO));
+        return cart.getId();
     }
 
     @Override
@@ -31,11 +32,17 @@ public class CartRepositoryAdapterImpl implements CartRepositoryAdapter {
         return cartOptional.map(this::buildCart);
     }
 
+    @Override
+    public void deleteById(final long id) {
+        cartRepository.deleteById(id);
+    }
+
     private Cart buildCart(final CartDO cartDO) {
         final long id = cartDO.getId() != null ? cartDO.getId() : sequenceGenerator.generateSequence(Cart.SEQUENCE_NAME);
         return Cart.builder()
                 .id(id)
                 .gamesIds(cartDO.getGamesIds())
+                .totalPrice(cartDO.getTotalPrice())
                 .build();
     }
 
@@ -43,6 +50,7 @@ public class CartRepositoryAdapterImpl implements CartRepositoryAdapter {
         return CartDO.builder()
                 .id(cart.getId())
                 .gamesIds(cart.getGamesIds())
+                .totalPrice(cart.getTotalPrice())
                 .build();
     }
 }

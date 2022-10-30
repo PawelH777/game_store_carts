@@ -1,4 +1,4 @@
-package org.example.cartmanagement.domain.model;
+package org.example.cartmanagement.application.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @Builder
-public class CartDO {
+public class CartDTO {
 
     private Long id;
 

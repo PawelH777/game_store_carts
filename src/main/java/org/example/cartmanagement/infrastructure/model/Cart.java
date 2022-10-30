@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Getter
@@ -22,4 +23,6 @@ public class Cart {
     private long id;
 
     private List<Long> gamesIds;
+
+    private BigDecimal totalPrice;
 }
