@@ -1,2 +1,13 @@
 server:
   port: 9371
+
+spring:
+  application:
+    name: cart-management
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
