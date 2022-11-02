@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Component
-@FeignClient("view-games")
+@FeignClient("view")
 public interface ViewGameClient {
 
-    @GetMapping("/games/{id}")
+    @GetMapping("/api/{id}")
     ResponseEntity<GameDTO> findById(@PathVariable final long id);
 }

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
-@RequestMapping("/carts")
+@RequestMapping("/api")
 public class CartController {
 
     Logger logger = LoggerFactory.getLogger(CartController.class);

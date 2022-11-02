@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: cart-management
+    name: carts
 
 eureka:
   client:
@@ -11,3 +11,4 @@ eureka:
       defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
   instance:
     preferIpAddress: true
+    hostname: localhost
